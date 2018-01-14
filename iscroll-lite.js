@@ -315,9 +315,7 @@ var utils = (function () {
 	return me;
 })();
 function IScroll (el, options) {
-	console.log(el);
 	this.wrapper = typeof el == 'string' ? document.querySelector(el) : el;
-	console.log(this.wrapper);
 	this.scroller = this.wrapper.children[0];
 	this.scrollerStyle = this.scroller.style;		// cache style for better performance
 
@@ -348,7 +346,8 @@ function IScroll (el, options) {
 
 	for ( var i in options ) {
 		this.options[i] = options[i];
-	}
+		// console.log(options[i]);
+	}	
 
 	// Normalize options
 	this.translateZ = this.options.HWCompositing && utils.hasPerspective ? ' translateZ(0)' : '';

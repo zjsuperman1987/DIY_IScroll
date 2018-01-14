@@ -12,7 +12,7 @@ function pullDownAction () {
  setTimeout(function () { // <-- Simulate network congestion, remove setTimeout from production!
   var el, li, i;
   el = document.getElementById('thelist');
- 
+ alert(el);
   for (i=0; i<3; i++) {
    li = document.createElement('li');
    li.innerText = '添加三冰 ' + (++generatedCount);
@@ -55,6 +55,7 @@ function loaded() {
   useTransition: false, /* 此属性不知用意，本人从true改为false */
   topOffset: pullDownOffset,
   onRefresh: function () {
+    alert(10000)
    if (pullDownEl.className.match('loading')) {
     pullDownEl.className = '';
     pullDownEl.querySelector('.pullDownLabel').innerHTML = '下拉刷新...';
@@ -84,6 +85,7 @@ function loaded() {
    }
   },
   onScrollEnd: function () {
+    alert(10000)
    if (pullDownEl.className.match('flip')) {
     pullDownEl.className = 'loading';
     pullDownEl.querySelector('.pullDownLabel').innerHTML = '加载中...';    
